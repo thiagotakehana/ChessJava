@@ -1,6 +1,7 @@
 package Pieces;
 
 import Pieces.Enum.PieceColor;
+import Pieces.Exception.InvalidMovementException;
 
 public abstract class BasePiece implements IChessPiece {
 
@@ -37,9 +38,14 @@ public abstract class BasePiece implements IChessPiece {
     @Override
     public void PrintPosition() {
         System.out.print("X:");
-        System.out.println(this.PosX);
+        System.out.print(this.PosX);
         System.out.print(" Y:");
         System.out.println(this.PosY);
+    }
+
+    @Override
+    public void Move(int X, int Y) throws InvalidMovementException {
+        this.SetPosition(X, Y);
     }
 
     @Override
@@ -60,8 +66,8 @@ public abstract class BasePiece implements IChessPiece {
     @Override
     public String GetColorName(){
         if(this.Color == PieceColor.White)
-            return "W";
+            return "*";
         else
-            return "B";
+            return " ";
     }
 }

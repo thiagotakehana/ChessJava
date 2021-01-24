@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import Pieces.IChessPiece;
 import Pieces.Enum.PieceColor;
+import Pieces.Exception.InvalidMovementException;
 import Pieces.*;
 
 public class Board {
@@ -30,12 +31,23 @@ public class Board {
         return null;
     }
 
+    public void Move(int OldX, int OldY, int NewX, int NewY){
+        IChessPiece foundPiece = FindPieceByPosition(OldX, OldY);
+        try {
+            foundPiece.Move(NewX, NewY);
+        } catch (InvalidMovementException e) {
+            System.out.println("Invalid movement");
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
     public void PlotBoard(){
         for (int y = 8; y >= 1; y--) {
             String row = "";
             for (int x = 1; x <= 8; x++) {
                 var piece = FindPieceByPosition(x, y);
-                if(piece != null){
+                if(piece != null && !piece.isDead()){
                     row = row.concat(piece.GetName() + " | ");
                 }else{
                     row = row.concat("    | ");

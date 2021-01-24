@@ -11,9 +11,15 @@ public class Pawn extends BasePiece {
 
     @Override
     public void Move(int X, int Y) throws InvalidMovementException {
-        if(this.PosY != Y){
+        if(this.PosX != X){
             throw new InvalidMovementException();
         }
+
+        if(Math.abs(this.PosY - Y) <= 2){
+            throw new InvalidMovementException();
+        }
+
+        super.Move(X, Y);
     }
 
     @Override
