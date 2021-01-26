@@ -13,6 +13,10 @@ public class Pawn extends BasePiece {
     public void Move(int X, int Y) throws InvalidMovementException {
         boolean isFirstMove = false;
 
+        if(this.PosX == X && this.PosY == Y){
+            throw new InvalidMovementException("Pawn can't move to the same space");
+        }
+
         if(this.Color == PieceColor.White){
             if(this.PosY == 2){
                 isFirstMove = true;

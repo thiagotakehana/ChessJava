@@ -11,8 +11,15 @@ public class Rook extends BasePiece {
 
     @Override
     public void Move(int X, int Y) throws InvalidMovementException {
-        // TODO Auto-generated method stub
+        if(this.PosX != X && this.PosY != Y){
+            throw new InvalidMovementException("Rook can't move on diagonal");
+        }
 
+        if(this.PosX == X && this.PosY == Y){
+            throw new InvalidMovementException("Rook can't move to the same space");
+        }
+
+        super.Move(X, Y);
     }
 
     @Override

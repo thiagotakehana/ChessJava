@@ -18,6 +18,17 @@ public class PawnTest {
     }
 
     @Test
+    public void Move_same_place_should_return_exception(){
+        Assert.assertThrows(InvalidMovementException.class, () -> {
+            whitePawn.Move(1, 2);
+        });
+
+        Assert.assertThrows(InvalidMovementException.class, () -> {
+            blackPawn.Move(1, 7);
+        });
+    }
+    
+    @Test
     public void Move_more_than_2_houses_should_return_exception(){
         Assert.assertThrows(InvalidMovementException.class, () -> {
             whitePawn.Move(1, 5);
