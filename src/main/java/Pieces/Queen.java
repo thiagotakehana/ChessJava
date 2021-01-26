@@ -11,8 +11,7 @@ public class Queen extends BasePiece {
 
     @Override
     public void Move(int X, int Y) throws InvalidMovementException {
-        
-
+        throw new UnsupportedOperationException();
     }
 
     @Override

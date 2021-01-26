@@ -8,15 +8,20 @@ public class Program {
         Board board = new Board();
         
         do {
-            System.out.println("Type movement on format e2 e4 or type P to print board");
+            System.out.println("Type movement on format (Eg. e2 e4) or type 'P' to print board");
             String input = System.console().readLine().trim().toLowerCase();
 
             int length = input.length();
             
             if(length == 1){
-                ClearConsole();
-                board.PlotBoard();
-                continue;
+                char command = input.charAt(0);
+                if(command == 'q'){
+                    return;
+                }else if(command == 'p'){
+                    ClearConsole();
+                    board.PlotBoard();
+                    continue;                    
+                }
             }
 
             if(length != 5){
@@ -31,6 +36,10 @@ public class Program {
                 int NewX = input.charAt(3) - 96;
                 int NewY = Character.getNumericValue(input.charAt(4));
                 board.Move(OldX, OldY, NewX, NewY);
+            } catch (UnsupportedOperationException e){
+                ClearConsole();
+                PrintLine("Not implemented");
+                continue;
             } catch (Exception e) {
                 ClearConsole();
                 PrintLine(e.getMessage());

@@ -47,4 +47,36 @@ public class RookTest {
             blackRook.Move(3, 6);
         });
     }
+
+    @Test
+    public void Move_forward_should_return_success(){
+
+        try {
+            whiteRook.Move(1, 5);
+            blackRook.Move(1, 5);
+        } catch (Exception e) {
+            Assert.fail("Exception on move forward");
+        }
+        
+        Assert.assertEquals(whiteRook.GetPosX(), 1);
+        Assert.assertEquals(whiteRook.GetPosY(), 5);
+        Assert.assertEquals(blackRook.GetPosX(), 1);
+        Assert.assertEquals(blackRook.GetPosY(), 5);
+    }
+
+    @Test
+    public void Move_side_should_return_success(){
+
+        try {
+            whiteRook.Move(5, 1);
+            blackRook.Move(5, 8);
+        } catch (Exception e) {
+            Assert.fail("Exception on move forward");
+        }
+        
+        Assert.assertEquals(whiteRook.GetPosX(), 5);
+        Assert.assertEquals(whiteRook.GetPosY(), 1);
+        Assert.assertEquals(blackRook.GetPosX(), 5);
+        Assert.assertEquals(blackRook.GetPosY(), 8);
+    }
 }

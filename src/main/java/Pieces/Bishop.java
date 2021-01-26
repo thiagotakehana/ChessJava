@@ -11,8 +11,7 @@ public class Bishop extends BasePiece {
 
     @Override
     public void Move(int X, int Y) throws InvalidMovementException {
-        // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
