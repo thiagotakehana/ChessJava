@@ -1,6 +1,7 @@
 package test.java.Pieces;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import src.main.java.Pieces.Rook;
@@ -11,11 +12,12 @@ public class RookTest {
     private Rook whiteRook;
     private Rook blackRook;
 
-    public RookTest() {
+    @Before
+    public void setUp() {
         whiteRook = new Rook(1, 1, PieceColor.White);
         blackRook = new Rook(1, 8, PieceColor.Black);
     }
-
+    
     @Test
     public void Move_same_place_should_return_exception(){
         Assert.assertThrows(InvalidMovementException.class, () -> {

@@ -55,7 +55,7 @@ public class Pawn extends BasePiece {
             throw new InvalidMovementException("Pawn can't move 2 houses and 1 in diagonal");
         }
 
-        if(this.PosX == X){
+        if(this.PosY == Y){
             throw new InvalidMovementException("Pawn should move fowards");
         }
 

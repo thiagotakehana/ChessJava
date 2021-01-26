@@ -1,6 +1,7 @@
 package test.java.Pieces;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import src.main.java.Pieces.*;
@@ -12,7 +13,8 @@ public class PawnTest {
     private Pawn whitePawn;
     private Pawn blackPawn;
 
-    public PawnTest() {
+    @Before
+    public void setUp() {
         whitePawn = new Pawn(1, 2, PieceColor.White);
         blackPawn = new Pawn(1, 7, PieceColor.Black);
     }
@@ -64,11 +66,19 @@ public class PawnTest {
     @Test
     public void Move_side_should_return_exception(){
         Assert.assertThrows(InvalidMovementException.class, () -> {
-            whitePawn.Move(1, 3);
+            whitePawn.Move(2, 2);
         });
+    }
 
-        Assert.assertThrows(InvalidMovementException.class, () -> {
-            whitePawn.Move(1, 4);
-        }); 
+    @Test
+    public void Move_1_house_forward_should_return_success(){
+
+        try {
+            whitePawn.Move(1, 3);    
+        } catch (Exception e) {
+        }
+        
+        Assert.assertEquals(whitePawn.GetPosX(), 1);
+        Assert.assertEquals(whitePawn.GetPosY(), 3);
     }
 }

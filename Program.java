@@ -6,7 +6,6 @@ public class Program {
         PrintLine("Starting chess board");
 
         Board board = new Board();
-        board.InitializeBoard();
         
         do {
             System.out.println("Type movement on format e2 e4 or type P to print board");
