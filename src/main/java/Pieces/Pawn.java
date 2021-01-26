@@ -31,14 +31,28 @@ public class Pawn extends BasePiece {
             }
         }
 
-        int movePositions = Math.abs(this.PosY - Y);
+        int movePositionsY = Math.abs(this.PosY - Y);
 
-        if(movePositions > 2){
+        if(movePositionsY > 2){
             throw new InvalidMovementException("Pawn can't move more than 2 houses");
         }
 
-        if(movePositions == 2 && !isFirstMove){
+        if(movePositionsY == 2 && !isFirstMove){
             throw new InvalidMovementException("Pawn can't move 2 houses after first move");
+        }
+
+        int movePositionsX = Math.abs(this.PosX - X);
+
+        if(movePositionsX > 1){
+            throw new InvalidMovementException("Pawn can't move 2 houses on diagonal");
+        }
+
+        if(movePositionsX == 1 && movePositionsY > 1){
+            throw new InvalidMovementException("Pawn can't move 2 houses and 1 in diagonal");
+        }
+
+        if(this.PosX == X){
+            throw new InvalidMovementException("Pawn should move fowards");
         }
 
         super.Move(X, Y);
