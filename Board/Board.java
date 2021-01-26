@@ -2,6 +2,8 @@ package Board;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Board.Exception.PieceNotFoundException;
 import Pieces.IChessPiece;
 import Pieces.Enum.PieceColor;
 import Pieces.Exception.InvalidMovementException;
@@ -31,12 +33,17 @@ public class Board {
         return null;
     }
 
-    public void Move(int OldX, int OldY, int NewX, int NewY){
+    public void Move(int OldX, int OldY, int NewX, int NewY) throws InvalidMovementException, PieceNotFoundException {
         IChessPiece foundPiece = FindPieceByPosition(OldX, OldY);
+
+        if(foundPiece == null){
+            throw new PieceNotFoundException("Piece not found");
+        }
+            
         try {
             foundPiece.Move(NewX, NewY);
         } catch (InvalidMovementException e) {
-            System.out.println("Invalid movement");
+            throw e;
         } catch (Exception e) {
             throw e;
         }

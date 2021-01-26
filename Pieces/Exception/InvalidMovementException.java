@@ -8,6 +8,6 @@ public class InvalidMovementException extends Exception {
     }
 
     public InvalidMovementException() {
-        super();
+        super("Invalid movement");
     }
 }
