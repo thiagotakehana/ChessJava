@@ -1,4 +1,4 @@
-package Pieces.Exception;
+package src.main.java.Pieces.Exception;
 
 public class InvalidMovementException extends Exception {
 	private static final long serialVersionUID = 3316861443982217667L;

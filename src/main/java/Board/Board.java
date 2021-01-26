@@ -1,13 +1,18 @@
-package Board;
+package src.main.java.Board;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Board.Exception.PieceNotFoundException;
-import Pieces.IChessPiece;
-import Pieces.Enum.PieceColor;
-import Pieces.Exception.InvalidMovementException;
-import Pieces.*;
+import src.main.java.Board.Exception.PieceNotFoundException;
+import src.main.java.Pieces.Bishop;
+import src.main.java.Pieces.IChessPiece;
+import src.main.java.Pieces.King;
+import src.main.java.Pieces.Knight;
+import src.main.java.Pieces.Pawn;
+import src.main.java.Pieces.Queen;
+import src.main.java.Pieces.Rook;
+import src.main.java.Pieces.Enum.PieceColor;
+import src.main.java.Pieces.Exception.InvalidMovementException;
 
 public class Board {
     private List<IChessPiece> Pieces;

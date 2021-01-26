@@ -1,4 +1,4 @@
-import Board.Board;
+import src.main.java.Board.Board;
 
 public class Program {
     public static void main(String[] args) {

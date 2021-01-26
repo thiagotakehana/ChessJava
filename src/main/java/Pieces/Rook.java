@@ -1,7 +1,7 @@
-package Pieces;
+package src.main.java.Pieces;
 
-import Pieces.Enum.PieceColor;
-import Pieces.Exception.InvalidMovementException;
+import src.main.java.Pieces.Enum.PieceColor;
+import src.main.java.Pieces.Exception.InvalidMovementException;
 
 public class Rook extends BasePiece {
 

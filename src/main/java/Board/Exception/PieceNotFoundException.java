@@ -1,4 +1,4 @@
-package Board.Exception;
+package src.main.java.Board.Exception;
 
 public class PieceNotFoundException extends Exception {
 
